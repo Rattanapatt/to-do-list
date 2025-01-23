@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NewTodoForm } from "../components/forms/NewTodoForm";
 import { TodoList } from "../components/forms/TodoList";
+import { Timer } from "../components/forms/Timer";
 
 export default function App() {
   const [todos, setTodos] = useState(() => {
@@ -43,6 +44,7 @@ export default function App() {
 
   return (
     <div className="w-200 mx-auto">
+      <Timer />
       <NewTodoForm onSubmit={addTodo} />
       <div className="m-10">
         <TodoList
