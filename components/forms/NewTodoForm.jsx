@@ -28,7 +28,7 @@ export const NewTodoForm = ({ onSubmit }) => {
           type="text"
           id="item"
           maxLength={50}
-          className="border-gray-400 rounded-md px-2 py-1 placeholder-gray-500 bg-gray-800 focus:outline-none focus:bg-gray-950 transition-colors duration-500"
+          className="border-gray-400 rounded-md px-2 py-1 placeholder-gray-500 bg-gray-900 focus:outline-none focus:bg-gray-950 transition-colors duration-500"
           placeholder="Enter a new item"
         />
         <AddButton />
