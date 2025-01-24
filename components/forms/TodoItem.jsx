@@ -1,7 +1,16 @@
 import React from "react";
 import { DeleteButton } from "../DeleteButton";
 
-export const TodoItem = ({ id, completed, title, toggleTodo, deleteTodo }) => {
+export const TodoItem = ({
+  id,
+  completed,
+  title,
+  createdAt,
+  toggleTodo,
+  deleteTodo,
+}) => {
+  const formattedDate = new Date(createdAt).toLocaleDateString("en-GB");
+
   return (
     <li key={id} className="flex justify-between items-center gap-4 m-4">
       <label className="flex items-center gap-2 cursor-pointer">
@@ -17,7 +26,10 @@ export const TodoItem = ({ id, completed, title, toggleTodo, deleteTodo }) => {
           {title}
         </span>
       </label>
-      <DeleteButton onClick={() => deleteTodo(id)} />
+      <div>
+        <span className="text-gray-400 text-sm">{formattedDate}</span>
+        <DeleteButton onClick={() => deleteTodo(id)} />
+      </div>
     </li>
   );
 };

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export const Timer = () => {
   const [Time, setTime] = useState(0);
+  const todayDate = new Date().toLocaleDateString("en-GB");
 
   useEffect(() => {
     const Timer = setInterval(() => {
@@ -10,6 +11,10 @@ export const Timer = () => {
 
     return () => clearInterval(Timer);
   }, []);
+
+  useEffect(() => {
+    document.title = `Todo-List - ${formatTime(Time)}`;
+  }, [Time]);
 
   const formatTime = (tSec) => {
     const hours = Math.floor(tSec / 3600);
@@ -24,7 +29,8 @@ export const Timer = () => {
   return (
     <div className="flex flex-col items-center justify-center pt-20 bg-gray-800 text-white">
       <h1 className="text-4xl font-bold">Timer</h1>
-      <p className="text-2xl mt-4">{formatTime(Time)}</p>
+      <h1>{todayDate}</h1>
+      <p className="text-6xl mt-4">{formatTime(Time)}</p>
     </div>
   );
 };
