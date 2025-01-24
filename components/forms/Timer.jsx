@@ -3,14 +3,16 @@ import React, { useEffect, useState } from "react";
 export const Timer = () => {
   const [Time, setTime] = useState(0);
   const todayDate = new Date().toLocaleDateString("en-GB");
+  const [startTime, setStartTime] = useState(Date.now());
 
   useEffect(() => {
     const Timer = setInterval(() => {
-      setTime((prevTime) => prevTime + 1);
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      setTime(elapsed);
     }, 1000);
 
     return () => clearInterval(Timer);
-  }, []);
+  }, [startTime]);
 
   useEffect(() => {
     document.title = `Todo-List - ${formatTime(Time)}`;
